@@ -1,0 +1,24 @@
+residential:
+  server:
+    hostname: "http://localhost:34567"
+  security:
+    jwtSecretKey: LLuyUEOph3hxwlv2oOZhydZTsMsIYzifJ3uhO7gkAXruJ7VqYyxeflAW2Tpd9Uhkwrhmc7OMiqzIVjC/SvR5EA==
+    jwtExpirationInSeconds: 3600
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/astrareal
+    username: astrareal
+    password: astrareal
+
+  liquibase:
+    change-log: classpath:/db/master.changelog.yml
+
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+
+server:
+  error:
+    include-stacktrace: never

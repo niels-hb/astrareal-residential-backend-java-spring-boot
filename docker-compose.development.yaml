@@ -1,0 +1,17 @@
+version: "3"
+
+volumes:
+  db_data: { }
+
+services:
+  postgresql:
+    restart: always
+    image: postgres:15.2-alpine
+    environment:
+      POSTGRES_USER: astrareal
+      POSTGRES_PASSWORD: astrareal
+      POSTGRES_DB: astrareal
+    ports:
+      - "5432:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data

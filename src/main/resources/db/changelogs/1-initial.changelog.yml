@@ -1,0 +1,1093 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1690626120662-1
+      author: niels.heidbrink (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: furniture_item_pkey
+                  name: id
+                  type: UUID
+              - column:
+                  constraints:
+                    nullable: false
+                  name: depth
+                  type: INTEGER
+              - column:
+                  constraints:
+                    nullable: false
+                  name: height
+                  type: INTEGER
+              - column:
+                  constraints:
+                    nullable: false
+                  name: name
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: quantity
+                  type: INTEGER
+              - column:
+                  constraints:
+                    nullable: false
+                  name: width
+                  type: INTEGER
+              - column:
+                  constraints:
+                    nullable: false
+                  name: request_id
+                  type: UUID
+            tableName: furniture_item
+  - changeSet:
+      id: 1690626120662-2
+      author: niels.heidbrink (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: parking_registration_pkey
+                  name: id
+                  type: UUID
+              - column:
+                  constraints:
+                    nullable: false
+                  name: brand
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: color
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: model
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: plate_number
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: type
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: access_card_id
+                  type: UUID
+            tableName: parking_registration
+  - changeSet:
+      id: 1690626120662-3
+      author: niels.heidbrink (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: role_pkey
+                  name: id
+                  type: UUID
+              - column:
+                  constraints:
+                    nullable: false
+                  name: name
+                  type: VARCHAR(255)
+            tableName: role
+  - changeSet:
+      id: 1690626120662-4
+      author: niels.heidbrink (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: identification_pkey
+                  name: id
+                  type: UUID
+              - column:
+                  constraints:
+                    nullable: false
+                  name: full_name
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: id_number
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: type
+                  type: VARCHAR(255)
+            tableName: identification
+  - changeSet:
+      id: 1690626120662-5
+      author: niels.heidbrink (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: account_pkey
+                  name: id
+                  type: UUID
+              - column:
+                  constraints:
+                    nullable: false
+                  name: email
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: name
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: password
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: telephone_number
+                  type: VARCHAR(255)
+            tableName: account
+  - changeSet:
+      id: 1690626120662-6
+      author: niels.heidbrink (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: access_card_pkey
+                  name: id
+                  type: UUID
+              - column:
+                  constraints:
+                    nullable: false
+                  name: number
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: owner_id
+                  type: UUID
+              - column:
+                  constraints:
+                    nullable: false
+                  name: unit_id
+                  type: UUID
+            tableName: access_card
+  - changeSet:
+      id: 1690626120662-7
+      author: niels.heidbrink (generated)
+      changes:
+        - addUniqueConstraint:
+            columnNames: plate_number
+            constraintName: uk_17m9ump3rplpcwho2ofopv3jl
+            tableName: parking_registration
+  - changeSet:
+      id: 1690626120662-8
+      author: niels.heidbrink (generated)
+      changes:
+        - addUniqueConstraint:
+            columnNames: name
+            constraintName: uk_8sewwnpamngi6b1dwaa88askk
+            tableName: role
+  - changeSet:
+      id: 1690626120662-9
+      author: niels.heidbrink (generated)
+      changes:
+        - addUniqueConstraint:
+            columnNames: id_number
+            constraintName: uk_kr7nsj4ehbwggduauh0wbk9f8
+            tableName: identification
+  - changeSet:
+      id: 1690626120662-10
+      author: niels.heidbrink (generated)
+      changes:
+        - addUniqueConstraint:
+            columnNames: telephone_number
+            constraintName: uk_lu1rjwx6mc1leaa5ovymdjvcn
+            tableName: account
+  - changeSet:
+      id: 1690626120662-11
+      author: niels.heidbrink (generated)
+      changes:
+        - addUniqueConstraint:
+            columnNames: email
+            constraintName: uk_q0uja26qgu1atulenwup9rxyr
+            tableName: account
+  - changeSet:
+      id: 1690626120662-12
+      author: niels.heidbrink (generated)
+      changes:
+        - addUniqueConstraint:
+            columnNames: number
+            constraintName: uk_pudjolumh9okw74rruk9qoopj
+            tableName: access_card
+  - changeSet:
+      id: 1690626120662-13
+      author: niels.heidbrink (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                  name: account_id
+                  type: UUID
+              - column:
+                  constraints:
+                    nullable: false
+                  name: role_id
+                  type: UUID
+            tableName: account_roles
+  - changeSet:
+      id: 1690626120662-14
+      author: niels.heidbrink (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: address_pkey
+                  name: id
+                  type: UUID
+              - column:
+                  constraints:
+                    nullable: false
+                  name: address_line1
+                  type: VARCHAR(255)
+              - column:
+                  name: address_line2
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: city
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: country
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: postal_code
+                  type: VARCHAR(255)
+            tableName: address
+  - changeSet:
+      id: 1690626120662-15
+      author: niels.heidbrink (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: building_pkey
+                  name: id
+                  type: UUID
+              - column:
+                  constraints:
+                    nullable: false
+                  name: name
+                  type: VARCHAR(255)
+              - column:
+                  name: telephone_number_office
+                  type: VARCHAR(255)
+              - column:
+                  name: telephone_number_reception
+                  type: VARCHAR(255)
+              - column:
+                  name: telephone_number_security
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: address_id
+                  type: UUID
+              - column:
+                  constraints:
+                    nullable: false
+                  name: project_id
+                  type: UUID
+            tableName: building
+  - changeSet:
+      id: 1690626120662-16
+      author: niels.heidbrink (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                  name: building_id
+                  type: UUID
+              - column:
+                  constraints:
+                    nullable: false
+                  name: manager_id
+                  type: UUID
+            tableName: building_managers
+  - changeSet:
+      id: 1690626120662-17
+      author: niels.heidbrink (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: company_pkey
+                  name: account_id
+                  type: UUID
+              - column:
+                  constraints:
+                    nullable: false
+                  name: id_number
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: tax_id_number
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: registered_address_id
+                  type: UUID
+            tableName: company
+  - changeSet:
+      id: 1690626120662-18
+      author: niels.heidbrink (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: document_pkey
+                  name: id
+                  type: UUID
+              - column:
+                  constraints:
+                    nullable: false
+                  name: file_type
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: name
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: lease_id
+                  type: UUID
+            tableName: document
+  - changeSet:
+      id: 1690626120662-19
+      author: niels.heidbrink (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: furniture_request_pkey
+                  name: request_id
+                  type: UUID
+              - column:
+                  constraints:
+                    nullable: false
+                  name: moving_date
+                  type: TIMESTAMP WITHOUT TIME ZONE
+              - column:
+                  constraints:
+                    nullable: false
+                  name: moving_time_from
+                  type: TIMESTAMP WITHOUT TIME ZONE
+              - column:
+                  constraints:
+                    nullable: false
+                  name: moving_time_to
+                  type: TIMESTAMP WITHOUT TIME ZONE
+              - column:
+                  name: notes
+                  type: VARCHAR(255)
+              - column:
+                  name: other_requirements
+                  type: VARCHAR(255)
+            tableName: furniture_request
+  - changeSet:
+      id: 1690626120662-20
+      author: niels.heidbrink (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                  name: request_id
+                  type: UUID
+              - column:
+                  constraints:
+                    nullable: false
+                  name: requirement
+                  type: VARCHAR(255)
+            tableName: furniture_request_requirements
+  - changeSet:
+      id: 1690626120662-21
+      author: niels.heidbrink (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: lease_pkey
+                  name: id
+                  type: UUID
+              - column:
+                  constraints:
+                    nullable: false
+                  name: lease_end
+                  type: TIMESTAMP WITHOUT TIME ZONE
+              - column:
+                  constraints:
+                    nullable: false
+                  name: lease_start
+                  type: TIMESTAMP WITHOUT TIME ZONE
+              - column:
+                  name: lease_terms
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: rental_fee
+                  type: INTEGER
+              - column:
+                  constraints:
+                    nullable: false
+                  name: lessee_id
+                  type: UUID
+              - column:
+                  constraints:
+                    nullable: false
+                  name: lessor_id
+                  type: UUID
+              - column:
+                  constraints:
+                    nullable: false
+                  name: unit_id
+                  type: UUID
+            tableName: lease
+  - changeSet:
+      id: 1690626120662-22
+      author: niels.heidbrink (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: person_pkey
+                  name: account_id
+                  type: UUID
+              - column:
+                  constraints:
+                    nullable: false
+                  name: date_of_birth
+                  type: TIMESTAMP WITHOUT TIME ZONE
+              - column:
+                  constraints:
+                    nullable: false
+                  name: gender
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: nationality
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: identification_id
+                  type: UUID
+              - column:
+                  constraints:
+                    nullable: false
+                  name: permanent_residential_address_id
+                  type: UUID
+            tableName: person
+  - changeSet:
+      id: 1690626120662-23
+      author: niels.heidbrink (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: project_pkey
+                  name: id
+                  type: UUID
+              - column:
+                  constraints:
+                    nullable: false
+                  name: name
+                  type: VARCHAR(255)
+            tableName: project
+  - changeSet:
+      id: 1690626120662-24
+      author: niels.heidbrink (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: refresh_token_pkey
+                  name: id
+                  type: UUID
+              - column:
+                  constraints:
+                    nullable: false
+                  name: created_at
+                  type: TIMESTAMP WITHOUT TIME ZONE
+              - column:
+                  constraints:
+                    nullable: false
+                  name: account_id
+                  type: UUID
+            tableName: refresh_token
+  - changeSet:
+      id: 1690626120662-25
+      author: niels.heidbrink (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: request_pkey
+                  name: id
+                  type: UUID
+              - column:
+                  constraints:
+                    nullable: false
+                  name: created_at
+                  type: TIMESTAMP WITHOUT TIME ZONE
+              - column:
+                  name: denial_reason
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: denied
+                  type: BOOLEAN
+              - column:
+                  constraints:
+                    nullable: false
+                  name: type
+                  type: VARCHAR(255)
+              - column:
+                  name: approved_by_id
+                  type: UUID
+              - column:
+                  name: executed_by_id
+                  type: UUID
+              - column:
+                  constraints:
+                    nullable: false
+                  name: requested_by_id
+                  type: UUID
+              - column:
+                  constraints:
+                    nullable: false
+                  name: unit_id
+                  type: UUID
+            tableName: request
+  - changeSet:
+      id: 1690626120662-26
+      author: niels.heidbrink (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: unit_pkey
+                  name: id
+                  type: UUID
+              - column:
+                  constraints:
+                    nullable: false
+                  name: name
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: building_id
+                  type: UUID
+              - column:
+                  constraints:
+                    nullable: false
+                  name: owner_id
+                  type: UUID
+            tableName: unit
+  - changeSet:
+      id: 1690626120662-27
+      author: niels.heidbrink (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: owner_id
+            baseTableName: unit
+            constraintName: fk1m3ocb5rai9xscad8mks1f5et
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: account
+            validate: true
+  - changeSet:
+      id: 1690626120662-28
+      author: niels.heidbrink (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: request_id
+            baseTableName: furniture_request_requirements
+            constraintName: fk1taiic0ho5adewycrbk406k9w
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: request_id
+            referencedTableName: furniture_request
+            validate: true
+  - changeSet:
+      id: 1690626120662-29
+      author: niels.heidbrink (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: executed_by_id
+            baseTableName: request
+            constraintName: fk3i9nbcx0cq6nu5umuojtsaa0u
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: account
+            validate: true
+  - changeSet:
+      id: 1690626120662-30
+      author: niels.heidbrink (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: registered_address_id
+            baseTableName: company
+            constraintName: fk4vc8sopo1qsxlkcnb8terht3
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: address
+            validate: true
+  - changeSet:
+      id: 1690626120662-31
+      author: niels.heidbrink (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: project_id
+            baseTableName: building
+            constraintName: fk6fjis14j5ev4m7tlbckmd6r5a
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: project
+            validate: true
+  - changeSet:
+      id: 1690626120662-32
+      author: niels.heidbrink (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: account_id
+            baseTableName: company
+            constraintName: fk75jxrkyqa7rjrx2sv72j7mnrf
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: account
+            validate: true
+  - changeSet:
+      id: 1690626120662-33
+      author: niels.heidbrink (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: lessee_id
+            baseTableName: lease
+            constraintName: fk8vmfj3ftbh62guwo5aniq1vt6
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: account
+            validate: true
+  - changeSet:
+      id: 1690626120662-34
+      author: niels.heidbrink (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: access_card_id
+            baseTableName: parking_registration
+            constraintName: fk9k0b1mk2u6128lrgmv06olgfi
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: access_card
+            validate: true
+  - changeSet:
+      id: 1690626120662-35
+      author: niels.heidbrink (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: identification_id
+            baseTableName: person
+            constraintName: fkac46m43kq4ut15p61k7p37ty9
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: identification
+            validate: true
+  - changeSet:
+      id: 1690626120662-36
+      author: niels.heidbrink (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: lease_id
+            baseTableName: document
+            constraintName: fkajywado06muw6ah7om86epwci
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: lease
+            validate: true
+  - changeSet:
+      id: 1690626120662-37
+      author: niels.heidbrink (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: owner_id
+            baseTableName: access_card
+            constraintName: fkbwl59t3brlr1u0g66bb1ph3xk
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: account
+            validate: true
+  - changeSet:
+      id: 1690626120662-38
+      author: niels.heidbrink (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: approved_by_id
+            baseTableName: request
+            constraintName: fkc75onfab6geykux2d5xprll7p
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: account
+            validate: true
+  - changeSet:
+      id: 1690626120662-39
+      author: niels.heidbrink (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: address_id
+            baseTableName: building
+            constraintName: fkf3ryyh4bd143l5b8stt65hwgr
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: address
+            validate: true
+  - changeSet:
+      id: 1690626120662-40
+      author: niels.heidbrink (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: requested_by_id
+            baseTableName: request
+            constraintName: fkfc8lq7qxcisdwnttruodqy7px
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: account
+            validate: true
+  - changeSet:
+      id: 1690626120662-41
+      author: niels.heidbrink (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: permanent_residential_address_id
+            baseTableName: person
+            constraintName: fkfrdei130atfggdrojr8i1wg1r
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: address
+            validate: true
+  - changeSet:
+      id: 1690626120662-42
+      author: niels.heidbrink (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: building_id
+            baseTableName: building_managers
+            constraintName: fkhnleq7700b9rym1sxp321i96j
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: building
+            validate: true
+  - changeSet:
+      id: 1690626120662-43
+      author: niels.heidbrink (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: role_id
+            baseTableName: account_roles
+            constraintName: fki84870gssnbi37wfqfifekghb
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: role
+            validate: true
+  - changeSet:
+      id: 1690626120662-44
+      author: niels.heidbrink (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: account_id
+            baseTableName: refresh_token
+            constraintName: fkiox3wo9jixvp9boxfheq7l99w
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: account
+            validate: true
+  - changeSet:
+      id: 1690626120662-45
+      author: niels.heidbrink (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: account_id
+            baseTableName: person
+            constraintName: fkiyv5708nn4k5w34ph5dofk6ag
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: account
+            validate: true
+  - changeSet:
+      id: 1690626120662-46
+      author: niels.heidbrink (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: lessor_id
+            baseTableName: lease
+            constraintName: fkj3nkjaqkulibh5ednjmxhn17
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: account
+            validate: true
+  - changeSet:
+      id: 1690626120662-47
+      author: niels.heidbrink (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: request_id
+            baseTableName: furniture_request
+            constraintName: fkkkyxvve3v4uiadgqodhq772or
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: request
+            validate: true
+  - changeSet:
+      id: 1690626120662-48
+      author: niels.heidbrink (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: manager_id
+            baseTableName: building_managers
+            constraintName: fklgct0c8mtxe46tarfrj493hus
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: account
+            validate: true
+  - changeSet:
+      id: 1690626120662-49
+      author: niels.heidbrink (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: unit_id
+            baseTableName: lease
+            constraintName: fkmx0h2epc5xak5163bhil5sorh
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: unit
+            validate: true
+  - changeSet:
+      id: 1690626120662-50
+      author: niels.heidbrink (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: building_id
+            baseTableName: unit
+            constraintName: fkp0hq1evgtn9mkl6epaipd3g3e
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: building
+            validate: true
+  - changeSet:
+      id: 1690626120662-51
+      author: niels.heidbrink (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: request_id
+            baseTableName: furniture_item
+            constraintName: fkqjuc4la0du7llibwe293dmqir
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: request_id
+            referencedTableName: furniture_request
+            validate: true
+  - changeSet:
+      id: 1690626120662-52
+      author: niels.heidbrink (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: unit_id
+            baseTableName: request
+            constraintName: fkqpp6siadravii6cw31hj751sa
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: unit
+            validate: true
+  - changeSet:
+      id: 1690626120662-53
+      author: niels.heidbrink (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: unit_id
+            baseTableName: access_card
+            constraintName: fkrre6a8ypd15wi3ym6darveesb
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: unit
+            validate: true
+  - changeSet:
+      id: 1690626120662-54
+      author: niels.heidbrink (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: account_id
+            baseTableName: account_roles
+            constraintName: fktp61eta5i06bug3w1qr6286uf
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: account
+            validate: true
