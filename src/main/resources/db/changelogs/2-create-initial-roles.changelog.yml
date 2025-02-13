@@ -1,0 +1,23 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1690718770642-1
+      author: niels.heidbrink (generated)
+      changes:
+        - insert:
+            tableName: role
+            columns:
+              - column:
+                  name: id
+                  value: "1868c091-fe50-489c-a265-39a3bc9495bf"
+              - column:
+                  name: name
+                  value: "ADMIN"
+        - insert:
+            tableName: role
+            columns:
+              - column:
+                  name: id
+                  value: "e21bf5b7-7bb3-4757-a59c-8a3e3f73cf93"
+              - column:
+                  name: name
+                  value: "OWNER"

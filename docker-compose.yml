@@ -1,0 +1,10 @@
+version: "3"
+
+services:
+  server:
+    restart: always
+    image: 183015051582.dkr.ecr.ap-southeast-1.amazonaws.com/backend-astrareal-tech-privateregistry-qp9cwjpoqui8:latest
+    ports:
+      - "80:80"
+    env_file:
+      - .env
